@@ -43,7 +43,7 @@ def clean_ufc_data(raw_path):
     #DROPPING rows without any winner
     df1 = df1.dropna(subset=["Winner"])
 
-    df1.to_csv("data/cleaned_ufc_data1.csv")
+    df1.to_csv("data/cleaned_ufc_data.csv")
 
     return df1
 
