@@ -1,11 +1,11 @@
-from data_processing import long_df, diff_cols
+from data_processing import history_df, diff_cols
 from model import log_reg_pipe
 import pandas as pd
 
 roll_stats = ['won', 'SIG_STR_pct', 'TD_pct', 'CTRL', 'SUB_ATT', 'KD']
 
 def get_current_form(fighter_name, n=5):
-    history = long_df[long_df['fighter'] == fighter_name].sort_values('date')
+    history = history_df[history_df['fighter'] == fighter_name].sort_values('date')
     if history.empty:
         return None
     return history[roll_stats].tail(n).mean()

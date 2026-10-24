@@ -36,6 +36,10 @@ for stat in roll_stats:
         .mean().reset_index(level=0, drop=True)
     )
 
+# Keep every fight (including each fighter's first) for the app's "current form" display.
+# long_df below drops debut fights because they have no previous fights to average.
+history_df = long_df.copy()
+
 roll_cols = [c for c in long_df.columns if c.endswith("_roll5")]
 long_df = long_df.dropna(subset=roll_cols).reset_index(drop=True)
 

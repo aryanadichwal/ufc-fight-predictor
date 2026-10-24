@@ -99,18 +99,18 @@ div.stButton > button:focus-visible {{ outline: 2px solid #fff; outline-offset: 
 
 @st.cache_resource(show_spinner="Loading data and training model...")
 def load():
-    from data_processing import long_df, diff_cols
+    from data_processing import history_df, diff_cols
     from model import log_reg_pipe
 
-    fighters = sorted(long_df["fighter"].dropna().unique())
-    return long_df, diff_cols, log_reg_pipe, fighters
+    fighters = sorted(history_df["fighter"].dropna().unique())
+    return history_df, diff_cols, log_reg_pipe, fighters
 
 
-long_df, diff_cols, model, fighters = load()
+history_df, diff_cols, model, fighters = load()
 
 
 def get_form(name, n=5):
-    hist = long_df[long_df["fighter"] == name].sort_values("date")
+    hist = history_df[history_df["fighter"] == name].sort_values("date")
     return hist[ROLL_STATS].tail(n).mean(), hist["date"].max()
 
 
