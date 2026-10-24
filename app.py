@@ -184,7 +184,7 @@ if go:
 prediction toward the red or blue corner.</div>
 {rows}
 <div class="note">Last fight in dataset: {n1} on {last1.date()}, {n2} on {last2.date()}.
-Older dates mean the form may be out of date. Data ends in 2023.</div>
+Older dates mean the form may be out of date. Data ends in mid-2026.</div>
 """,
         unsafe_allow_html=True,
     )
